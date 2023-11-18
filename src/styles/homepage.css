@@ -19,10 +19,7 @@
     border: solid 4px var(--pokemon-accent-blue);
     box-shadow: var(--pokemon-dark-blue) -4px 4px 0px 0px;
     width: fit-content;
-}
-
-.animated {
-    animation: move 0.5s ease;
+    height: fit-content;
 }
 
 .pokemon_name {
@@ -30,6 +27,7 @@
     text-transform: uppercase;
     color: var(--pokemon-dark-blue);
     font-weight: bold;
+    text-align: -webkit-center;
 }
 
 img {
@@ -50,11 +48,19 @@ img {
     }
 }
 
+/*
+.animated {
+    animation: move 0.5s ease;
+}
+*/
+
+/*
 @keyframes move {
     from {
-        margin: -104px;
+        margin: -100px;
     }
     to {
         margin: 8px;
     }
 }
+*/

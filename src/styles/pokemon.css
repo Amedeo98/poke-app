@@ -6,11 +6,13 @@ h2 {
     margin-top: 8px;
     margin-left: 8px;
     text-transform: uppercase;
+    text-align: -webkit-center;
 }
 
 h3 {
     margin: 4px;
     text-transform: uppercase;
+    text-align: -webkit-center;
 }
 
 .pokedex_number {
@@ -57,7 +59,9 @@ h3 {
 }
 
 .info_container {
-    text-align: -webkit-center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 4%;
 }
 
 .stats {
@@ -88,17 +92,28 @@ label {
 .back {
     height: 0;
     width: 0;
-    border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    border-bottom: 24px solid var(--pokemon-dark-blue);
+    border-left: 32px solid transparent;
+    border-right: 32px solid transparent;
+    border-bottom: 20px solid var(--pokemon-dark-blue);
     transform: rotate(-90deg);
     position: absolute;
-    top: 348px;
+    top: 48px;
     left: calc(50% - 240px);
     cursor: pointer;
+}
 
-    @media (max-width: 480px) {
-        top: 68px;
-        left: calc(50% - 160px);
+@media (max-width: 1024px) {
+    .info_container {
+        display: block;
+        text-align: -webkit-center;
     }
 }
+
+@media (max-width: 480px) {
+    .back {
+    top: 68px;
+    left: calc(50% - 160px);
+    }
+}
+
+

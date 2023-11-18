@@ -36,8 +36,8 @@ function PokemonPage({ list, loading, error, evolution_chain, fetchPokemonList, 
 
     return (
         <section className="flex_center_container">
+            <Link to="/" className='back'></Link>
             <div className='info_container'>
-                <Link to="/" className='back'></Link>
                 <div className='pokemon_card'>
                     <div className='flex_container'>
                         <h2>{pokemon.name}</h2>
@@ -81,7 +81,6 @@ function PokemonPage({ list, loading, error, evolution_chain, fetchPokemonList, 
                         </label>
                     </div>
                 </div>
-                <br></br>
                 <div>
                     <h2>Evolution</h2>
                     <div className='evol_container'>
