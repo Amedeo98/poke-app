@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchPokemonList } from '../store/actions/pokemon';
 import PokemonCard from '../components/pokemon_card';
+import '../styles/homepage.css';
 
 function HomePage({ list, loading, error, fetchPokemonList }) {
   useEffect(() => {
@@ -18,10 +19,10 @@ function HomePage({ list, loading, error, fetchPokemonList }) {
 
   return (
     <div className="homepage">
-      <h1>Pokemon List</h1>
+      <h2>Pokemon List</h2>
       <div className="pokemon_container">
         {list && list.map(pokemon => (
-          <PokemonCard key={pokemon.name} pokemon={pokemon}></PokemonCard>
+          <PokemonCard key={pokemon.name} pokemon={pokemon} animated={false}></PokemonCard>
         ))}
       </div>
     </div>
