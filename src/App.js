@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './components/home_page';
+import PokemonPage from './components/pokemon_page'
+import NotFoundPage from './components/not_found_page';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import pokemonReducer from './store/reducers/pokemon';
+import Header from './components/header';
+
+const rootReducer = combineReducers({
+  pokemon: pokemonReducer,
+});
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunkMiddleware)
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+    <Router>
+    <Header/>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/pokemon/:pokemonName" component={PokemonPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </Router>
+    </Provider>
   );
 }
 
