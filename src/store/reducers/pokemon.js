@@ -11,6 +11,8 @@ const initialState = {
   evolution_chain: [],
 };
 
+//built the request, success, failure structure but still not used for the evolution
+
 const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_POKEMON_LIST_REQUEST:

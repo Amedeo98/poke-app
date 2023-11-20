@@ -6,8 +6,10 @@ import '../styles/homepage.css';
 
 function HomePage({ list, loading, error, fetchPokemonList }) {
   useEffect(() => {
-    fetchPokemonList();
-  }, []);
+    if(!list || list.length == 0){
+      fetchPokemonList();
+    }
+  }, [list, fetchPokemonList]);
 
   if (loading) {
     return <div>Loading...</div>;
